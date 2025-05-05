@@ -14,7 +14,7 @@ A specialized API designed to meet the analytical needs of **Lab 1**, offering d
 
 - Node.js 20.x
 - Docker (optional)
-- PostgreSQL database
+- MySQL database
 
 ## Quick Start with Docker
 
