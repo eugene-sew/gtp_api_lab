@@ -20,7 +20,7 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 
 ENV HOST=0.0.0.0
 ENV PORT=80
