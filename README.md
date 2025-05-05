@@ -72,7 +72,7 @@ NODE_ENV=development
 Once the server is running, access the Swagger documentation at:
 
 ```
-http://localhost:8080/api/docs
+http://localhost:8080/api-docs
 ```
 
 ### Key Endpoints
