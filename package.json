@@ -11,7 +11,7 @@
         "prisma:generate": "prisma generate",
         "prisma:migrate": "prisma migrate dev",
         "prisma:studio": "prisma studio",
-        "db:deploy": "npx prisma migrate deploy && npx prisma generate"
+        "db:deploy": "npx prisma migrate dev && npx prisma generate"
     },
     "dependencies": {
         "@prisma/client": "^5.22.0",
