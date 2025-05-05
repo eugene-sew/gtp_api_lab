@@ -2,6 +2,8 @@
 
 A specialized API designed to meet the analytical needs of **Lab 1**, offering detailed insights into customer behavior, sales trends, and product performance.
 
+🌐 **Live API Documentation**: [http://63.34.163.46/api-docs/#/](http://63.34.163.46/api-docs/#/)
+
 ## Features
 
 - 📊 **Top Customer Analysis**: Identify the lab's highest-spending customers.
