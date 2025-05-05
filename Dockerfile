@@ -10,7 +10,7 @@ RUN apk add --no-cache \
 WORKDIR /usr/src/app
 
 # Copy package files first for better caching
-COPY package*.json ./
+COPY package.json ./
 COPY prisma ./prisma/
 
 COPY .env ./
