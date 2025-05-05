@@ -4,11 +4,38 @@ A specialized API designed to meet the analytical needs of **Lab 1**, offering d
 
 ## Features
 
-- 📊 **Top Customer Analysis**: Identify the lab’s highest-spending customers.
-- 📈 **Monthly Sales Reports**: Gain insights into the lab’s monthly revenue trends.
+- 📊 **Top Customer Analysis**: Identify the lab's highest-spending customers.
+- 📈 **Monthly Sales Reports**: Gain insights into the lab's monthly revenue trends.
 - 🏷️ **Product Performance Tracking**: Evaluate which lab products perform best.
 - 🌍 **Country-wise Order Statistics**: Analyze lab orders by region for strategic planning.
 - 👥 **Frequent Customer Identification**: Find customers who regularly purchase from the lab.
+
+## Cloud Architecture
+
+The application is deployed in AWS (eu-west-1a) using a secure VPC architecture with the following components:
+
+![VPC Architecture: Public/Private Subnets with Express.js and RDS](./image/architecture.png)
+
+### VPC Configuration
+
+- **Public Subnet**:
+
+    - Houses the Express.js application in Docker
+    - Connected to Internet Gateway for public access
+    - Security group controls inbound/outbound traffic (port/IP based)
+
+- **Private Subnet**:
+    - Contains RDS database instance
+    - No direct internet access
+    - Security group allows inbound connections only from Public Subnet
+    - Includes automated backup/snapshot functionality
+
+### Security Features
+
+- Segregated network architecture with public/private subnets
+- Restricted database access (only accessible from application tier)
+- Security groups implementing principle of least privilege
+- Automated database backups for disaster recovery
 
 ## Prerequisites
 
