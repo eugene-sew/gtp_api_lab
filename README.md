@@ -52,6 +52,9 @@ The application is deployed in AWS (eu-west-1a) using a secure VPC architecture 
 git clone <your-repo-url>
 cd lab_api
 
+# Navigate to the API directory
+cd api
+
 # Create .env file (see Environment Variables section)
 cp .env.example .env
 
@@ -66,6 +69,9 @@ docker run -p 80:80 --env-file .env lab-1-api
 # Clone the repository
 git clone <your-repo-url>
 cd lab_api
+
+# Navigate to the API directory
+cd api
 
 # Install dependencies
 npm install
@@ -113,52 +119,59 @@ http://localhost:8080/api-docs
     - `GET /api/lab/top-spenders?limit=10`
     - Get top customers by total spending
 
-    ![Top Spenders Analysis](./screenshots/spending.png)
+    ![Top Spenders Analysis](../screenshots/spending.png)
 
 2. **Monthly Sales Report**
 
     - `GET /api/lab/monthly-sales?year=2024&month=3`
     - Get detailed sales report for a specific month
 
-    ![Monthly Sales Analytics](./screenshots/analytics.png)
+    ![Monthly Sales Analytics](../screenshots/analytics.png)
 
 3. **Non-selling Products**
 
     - `GET /api/lab/non-selling-products`
     - List products that have never been ordered
 
-    ![Non-selling Products Analysis](./screenshots/null_prod.png)
+    ![Non-selling Products Analysis](../screenshots/null_prod.png)
 
 4. **Country Statistics**
 
     - `GET /api/lab/country-stats`
     - Get average order value by country
 
-    ![Country-wise Order Statistics](./screenshots/country_avg.png)
+    ![Country-wise Order Statistics](../screenshots/country_avg.png)
 
 5. **Frequent Customers**
 
     - `GET /api/lab/frequent-customers?minOrders=2`
     - Identify customers with frequent purchases
 
-    ![Frequent Customer Analysis](./screenshots/frequent.png)
+    ![Frequent Customer Analysis](../screenshots/frequent.png)
 
 ## Project Structure
 
 ```
 lab_api/
-├── src/
-│   ├── controllers/
-│   │   └── lab.controllers.ts    # Request handlers
-│   ├── services/
-│   │   └── lab.service.ts        # Business logic
-│   ├── routes/
-│   │   └── lab.routes.ts         # API routes
-│   └── config/
-│       └── swagger.ts            # API documentation
-├── prisma/
-│   └── schema.prisma             # Database schema
-└── Dockerfile                    # Docker configuration
+├── api/                         # Backend API implementation
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   └── lab.controllers.ts    # Request handlers
+│   │   ├── services/
+│   │   │   └── lab.service.ts        # Business logic
+│   │   ├── routes/
+│   │   │   └── lab.routes.ts         # API routes
+│   │   └── config/
+│   │       └── swagger.ts            # API documentation
+│   ├── prisma/
+│   │   └── schema.prisma             # Database schema
+│   └── Dockerfile                    # Docker configuration
+├── scripts/                     # SQL Query Scripts
+│   ├── frequent_buyers.sql      # Frequent customer analysis
+│   ├── country_order_avg.sql    # Country-wise order statistics
+│   ├── never_ordered.sql        # Non-selling products
+│   ├── monthly_sales.sql        # Monthly sales analysis
+│   └── top_spending_query.sql   # Top spenders analysis
 ```
 
 ## Development
