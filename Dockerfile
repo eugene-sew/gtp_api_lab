@@ -13,6 +13,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY prisma ./prisma/
 
+COPY .env ./
 # Install dependencies
 RUN npm ci
 
