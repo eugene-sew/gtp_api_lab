@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "eb3e18d8-5d55-4929-8ba0-b923c3bd76fd",
+		"name": "expgen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24752733"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.to.have.status(201)) {\r",
+									"    const response = pm.response.json();\r",
+									"\r",
+									"    if(response.data._id) {\r",
+									"        pm.collectionVariables.set('USER_ID', response.data._id);\r",
+									"    } else {\r",
+									"        pm.collectionVariables.set('USER_ID', response.data.id);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"email\": \"{{$randomFirstName}}@email.com\",\r\n    \"password\": \"hehehA69\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/{{USER_ID}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"{{USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/{{USER_ID}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"{{USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user/{{USER_ID}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"{{USER_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"item": [
+				{
+					"name": "Get Top Spenders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/lab/top-spenders?limit=10",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"lab",
+								"top-spenders"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Monthly Sales Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/lab/monthly-sales?year=2024&month=3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"lab",
+								"monthly-sales"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2024"
+								},
+								{
+									"key": "month",
+									"value": "3"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Non-Selling Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/lab/non-selling-products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"lab",
+								"non-selling-products"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Country Order Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/lab/country-stats",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"lab",
+								"country-stats"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Frequent Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/lab/frequent-customers?minOrders=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"lab",
+								"frequent-customers"
+							],
+							"query": [
+								{
+									"key": "minOrders",
+									"value": "2"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "USER_ID",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"Resources": {
+		"UserPool": {
+			"Type": "AWS::Cognito::UserPool",
+			"Properties": {
+				"AdminCreateUserConfig": {
+					"AllowAdminCreateUserOnly": false
+				},
+				"AliasAttributes": [
+					"email",
+					"preferred_username"
+				],
+				"UserPoolName": {
+					"Fn::Sub": "${AWS::StackName}-UserPool"
+				}
+			}
+		}
+	}
+}

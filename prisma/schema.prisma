@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model customers {
+  customer_id Int      @id
+  name        String   @db.VarChar(100)
+  email       String   @unique(map: "email") @db.VarChar(100)
+  country     String?  @db.VarChar(50)
+  orders      orders[]
+}
+
+model order_items {
+  order_item_id Int       @id
+  order_id      Int?
+  product_id    Int?
+  quantity      Int?
+  unit_price    Decimal?  @db.Decimal(10, 2)
+  orders        orders?   @relation(fields: [order_id], references: [order_id], onDelete: NoAction, onUpdate: NoAction, map: "order_items_ibfk_1")
+  products      products? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction, map: "order_items_ibfk_2")
+
+  @@index([order_id], map: "order_id")
+  @@index([product_id], map: "product_id")
+}
+
+model orders {
+  order_id    Int           @id
+  customer_id Int?
+  order_date  DateTime?     @db.Date
+  status      String?       @db.VarChar(20)
+  order_items order_items[]
+  customers   customers?    @relation(fields: [customer_id], references: [customer_id], onDelete: NoAction, onUpdate: NoAction, map: "orders_ibfk_1")
+
+  @@index([customer_id], map: "customer_id")
+}
+
+model products {
+  product_id  Int           @id
+  name        String        @db.VarChar(100)
+  category    String?       @db.VarChar(50)
+  price       Decimal?      @db.Decimal(10, 2)
+  order_items order_items[]
+}
