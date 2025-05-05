@@ -17,9 +17,6 @@ COPY .env ./
 # Install dependencies
 RUN npm ci
 
-# Generate Prisma Client
-RUN npx prisma generate
-
 # Copy the rest of the application
 COPY . .
 
@@ -32,4 +29,4 @@ ENV PORT=80
 RUN wget -O wait-for https://raw.githubusercontent.com/eficode/wait-for/v2.2.3/wait-for && \
     chmod +x wait-for
 
-CMD [ "npm", "run", "start:dev" ]
+CMD ["sh", "-c", "npm run db:deploy && npm run start:dev"]
