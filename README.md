@@ -60,7 +60,7 @@ Create a `.env` file in the root directory with the following variables:
 DATABASE_URL="mysql://user:password@localhost:5432/lab_1_db"
 
 # Server Configuration
-PORT=8080
+PORT=80
 HOST=localhost  # or your server IP address
 
 # Optional Configuration

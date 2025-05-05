@@ -10,7 +10,7 @@ const options = {
         },
         servers: [
             {
-                url: `http://${process.env.HOST || 'localhost'}:8080/api/`,
+                url: 'http://63.34.163.46:80/api/',
                 description: 'Development server',
             },
         ],
