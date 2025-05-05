@@ -16,7 +16,7 @@ A specialized API designed to meet the analytical needs of **Lab 1**, offering d
 
 The application is deployed in AWS (eu-west-1a) using a secure VPC architecture with the following components:
 
-![VPC Architecture: Public/Private Subnets with Express.js and RDS](./image/architecture.png)
+![VPC Architecture: Public/Private Subnets with Express.js and RDS](./screenshots/architecture.png)
 
 ### VPC Configuration
 
@@ -113,25 +113,35 @@ http://localhost:8080/api-docs
     - `GET /api/lab/top-spenders?limit=10`
     - Get top customers by total spending
 
+    ![Top Spenders Analysis](./screenshots/spending.png)
+
 2. **Monthly Sales Report**
 
     - `GET /api/lab/monthly-sales?year=2024&month=3`
     - Get detailed sales report for a specific month
+
+    ![Monthly Sales Analytics](./screenshots/analytics.png)
 
 3. **Non-selling Products**
 
     - `GET /api/lab/non-selling-products`
     - List products that have never been ordered
 
+    ![Non-selling Products Analysis](./screenshots/null_prod.png)
+
 4. **Country Statistics**
 
     - `GET /api/lab/country-stats`
     - Get average order value by country
 
+    ![Country-wise Order Statistics](./screenshots/country_avg.png)
+
 5. **Frequent Customers**
 
     - `GET /api/lab/frequent-customers?minOrders=2`
     - Identify customers with frequent purchases
+
+    ![Frequent Customer Analysis](./screenshots/frequent.png)
 
 ## Project Structure
 
