@@ -119,35 +119,35 @@ http://localhost:8080/api-docs
     - `GET /api/lab/top-spenders?limit=10`
     - Get top customers by total spending
 
-    ![Top Spenders Analysis](../screenshots/spending.png)
+    ![Top Spenders Analysis](./screenshots/spending.png)
 
 2. **Monthly Sales Report**
 
     - `GET /api/lab/monthly-sales?year=2024&month=3`
     - Get detailed sales report for a specific month
 
-    ![Monthly Sales Analytics](../screenshots/analytics.png)
+    ![Monthly Sales Analytics](./screenshots/analytics.png)
 
 3. **Non-selling Products**
 
     - `GET /api/lab/non-selling-products`
     - List products that have never been ordered
 
-    ![Non-selling Products Analysis](../screenshots/null_prod.png)
+    ![Non-selling Products Analysis](./screenshots/null_prod.png)
 
 4. **Country Statistics**
 
     - `GET /api/lab/country-stats`
     - Get average order value by country
 
-    ![Country-wise Order Statistics](../screenshots/country_avg.png)
+    ![Country-wise Order Statistics](./screenshots/country_avg.png)
 
 5. **Frequent Customers**
 
     - `GET /api/lab/frequent-customers?minOrders=2`
     - Identify customers with frequent purchases
 
-    ![Frequent Customer Analysis](../screenshots/frequent.png)
+    ![Frequent Customer Analysis](./screenshots/frequent.png)
 
 ## Project Structure
 
