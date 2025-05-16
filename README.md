@@ -67,7 +67,7 @@ docker run -p 80:80 --env-file .env lab-1-api
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/eugene-sew/gtp_api_lab.git
 cd lab_api
 
 # Navigate to the API directory
