@@ -50,7 +50,7 @@ The application is deployed in AWS (eu-west-1a) using a secure VPC architecture 
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd lab_api
+cd gtp_api_lab
 
 # Navigate to the API directory
 cd api
