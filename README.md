@@ -49,7 +49,7 @@ The application is deployed in AWS (eu-west-1a) using a secure VPC architecture 
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/eugene-sew/gtp_api_lab.git
 cd gtp_api_lab
 
 # Navigate to the API directory
